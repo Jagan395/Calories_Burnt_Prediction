@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Calories Burnt Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #f9fafb; }
+    .container { max-width: 550px; margin: 0 auto; background: #fff; padding: 20px 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #111827; }
+    label { display:block; margin-top: 12px; font-weight: 600; }
+    input, select { width: 100%; padding: 8px; margin-top: 4px; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem; }
+    button { margin-top: 20px; width: 100%; padding: 10px; font-size: 1rem; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    .alert { margin-top: 10px; background: #fee2e2; color: #991b1b; padding: 10px; border-radius: 6px; border: 1px solid #fecaca; }
+    .result { margin-top: 20px; background: #ecfdf5; color: #065f46; padding: 12px; border-radius: 6px; border: 1px solid #bbf7d0; text-align: center; }
+    small { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calories Burnt Predictor</h1>
+    <p><small>Enter the details below and click Predict. (Gender: 0 = Male, 1 = Female)</small></p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/predict">
+      <label>Gender (0 = Male, 1 = Female)</label>
+      <select name="gender" required>
+        <option value="" disabled selected hidden>Select gender</option>
+        <option value="0" {% if last_inputs and last_inputs.gender == '0' %}selected{% endif %}>Male (0)</option>
+        <option value="1" {% if last_inputs and last_inputs.gender == '1' %}selected{% endif %}>Female (1)</option>
+      </select>
+
+      <label>Age (years)</label>
+      <input type="number" name="age" min="0" step="1" required value="{{ last_inputs.age if last_inputs else '' }}">
+
+      <label>Height (cm)</label>
+      <input type="number" name="height" min="0" step="0.1" required value="{{ last_inputs.height if last_inputs else '' }}">
+
+      <label>Heart Rate (bpm)</label>
+      <input type="number" name="heart_rate" min="0" step="1" required value="{{ last_inputs.heart_rate if last_inputs else '' }}">
+
+      <label>Body Temperature (°C)</label>
+      <input type="number" name="body_temp" min="0" step="0.1" required value="{{ last_inputs.body_temp if last_inputs else '' }}">
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+      <div class="result">
+        <strong>Predicted Calories Burnt:</strong><br>
+        <span style="font-size:1.25rem;">{{ "%.2f"|format(prediction) }}</span>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
