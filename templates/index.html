@@ -44,6 +44,9 @@
       <label>Height (cm)</label>
       <input type="number" name="height" min="0" step="0.1" required value="{{ last_inputs.height if last_inputs else '' }}">
 
+      <label>Duration (min)</label>
+      <input type="number" name="duration" min="0" step="0.1" required value="{{ last_inputs.duration if last_inputs else '' }}">
+
       <label>Heart Rate (bpm)</label>
       <input type="number" name="heart_rate" min="0" step="1" required value="{{ last_inputs.heart_rate if last_inputs else '' }}">
 

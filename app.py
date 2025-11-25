@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, flash
 import numpy as np
 import pickle
 import os
-
 app = Flask(__name__)
 app.secret_key = "replace-with-a-random-secret"  # needed for flash messages
 
@@ -40,25 +39,25 @@ def predict():
         gender_raw  = request.form.get("gender", "").strip().lower()
         age         = float(request.form.get("age", "").strip())
         height      = float(request.form.get("height", "").strip())
+        duration    = float(request.form.get("duration", "").strip())
         heart_rate  = float(request.form.get("heart_rate", "").strip())
         body_temp   = float(request.form.get("body_temp", "").strip())
 
         # ----- Encode gender -> numeric -----
         # Adjust mapping to match your trained model!
         # Example: male=0, female=1, other/unspecified=2 (if model supports it)
-        if gender_raw in ("male", "m"):
-            gender = 0.0
-        elif gender_raw in ("female", "f"):
-            gender = 1.0
+        
+        if gender_raw in ("male", "m", "0"):
+          gender = 0.0
+        elif gender_raw in ("female", "f", "1"):
+          gender = 1.0
         else:
-            # if your model only supports 0/1, you can default or raise an error:
-            # flash("Please select Male or Female.")
-            # return render_template("index.html")
-            gender = 0.0  # defaulting to Male if unspecified
-
+          flash("Please select a valid gender.")
+          return render_template("index.html")
+        
         # ----- Build feature vector in the EXACT order your model expects -----
         # Here we assume the model expects: [gender, age, height, heart_rate, body_temp]
-        X = np.array([[gender, age, height, heart_rate, body_temp]], dtype=float)
+        X = np.array([[gender, age, height, duration, heart_rate, body_temp]], dtype=float)
 
         # ----- Predict -----
         y_pred = model.predict(X)
@@ -68,6 +67,7 @@ def predict():
             "gender": gender_raw,
             "age": age,
             "height": height,
+            "duration": duration,
             "heart_rate": heart_rate,
             "body_temp": body_temp
         })
@@ -78,6 +78,7 @@ def predict():
     except Exception as e:
         flash(f"Something went wrong while predicting: {e}")
         return render_template("index.html")
+    
 
 if __name__ == "__main__":
     # If you’re in Docker/WSL, host="0.0.0.0". Otherwise default is fine.
