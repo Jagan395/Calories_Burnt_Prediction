@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 
-with open("Model_prediction/model.pkl","rb") as f:
+with open("Model_Prediction/model.pkl","rb") as f:
     model=pickle.load(f)
 
 def predict_output(user_info: dict):
