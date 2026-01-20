@@ -33,7 +33,7 @@ if st.button("Predict Calories Burnt"):
     try:
         response = requests.post(API_URL, json=payload)
 
-        if response.status_code == 203:
+        if response.status_code == 200:
             result = response.json()
             st.success(result["response"])
         else:

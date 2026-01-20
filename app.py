@@ -20,5 +20,5 @@ def Predict(user_data:User):
         "Body_Temp":user_data.Body_Temp
     }
     output=predict_output(user_info)
-    return JSONResponse(status_code=203,content={"response":f"CALORIES BURNT BY YOU  {output} In (kcal)"})
+    return JSONResponse(status_code=200,content={"response":f"CALORIES BURNT BY YOU  {output} In (kcal)"})
 

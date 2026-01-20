@@ -6,6 +6,5 @@ with open("Model_Prediction/model.pkl","rb") as f:
 
 def predict_output(user_info: dict):
     user_input=pd.DataFrame([user_info])
-    print(user_input)
-    prediction=model.predict(user_input)[0]
+    prediction=round(model.predict(user_input)[0],2)
     return prediction
