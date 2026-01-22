@@ -1,9 +1,0 @@
-__pycache__/
-Model_Training/
-myenv1/
-*.ipynb
-.vscode/
-.git/
-.gitignore
-.gitattributes
-desktop.ini
