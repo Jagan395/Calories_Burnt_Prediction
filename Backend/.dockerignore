@@ -1,0 +1,13 @@
+__pycache__/
+.vscode/
+Frontend/
+ui.py/
+Model_Training/
+Calories_Burnt_Prediction.ipynb/
+calories.csv/
+desktop.ini/
+myenv1/
+.gitattributes/
+.gitignore/
+desktop.ini/
+.git
