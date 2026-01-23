@@ -5,8 +5,10 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
 
 # Project Overview:
 
-1.Model training with scikit-learn
-2.Model serialization using pickle
+1.Model training with scikit-learn <br>
+2.Model serialization using pickle <br>
 3.RESTful inference API with FastAPI
 4.Interactive UI built with Streamlit
 5.Dockerized services for reproducibility
+
+
