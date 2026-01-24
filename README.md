@@ -6,8 +6,8 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
 ---
 
 ## Live URL :
-   - **Swagger API Docs**  
-  https://calories-burnt-prediction-backend.onrender.com/docs
+   - **TRY IT OUT** <br> 
+  http://13.233.148.78:8501/
 ---
 
 ## Project Overview:
@@ -21,24 +21,36 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
 ---
 
 ## How to run:
-  - **local** :
+  - **local** :<br>
     1.install the git <br>
     2.clone the project <br>
-    3.install the required dependencies <br>
+    3.install the requirements using the below command<br>
+    -**CMD**<br>
+       pip install -r reqiurements.txt
     4.run the backend code using the below command <br>
-    - **CMD**
+    - **CMD**<br>
       uvicorn app:app --reload <br>
     5.run the frontend code using the below command<br>
-    -**CMD**
-      [Important:Replace the "http://backend:8000/predict" in ui.py with "http://127.0.0.1:8000/predict"]<br>
+    -**CMD**<br>
+      [Important:Replace the " http://backend:8000/predict " in ui.py with " http://127.0.0.1:8000/predict "]<br>
 
       streamlit run u.py<br>
 
-    -**docker**:
+    -**docker**:<br>
       1.install the docker<br>
-      2.build the docker image using below command:
-     -**CMD**:
+      2.clone the project using git
+      3.install the requirements using the below command<br>
+      -**CMD**<br>
+       pip install -r reqiurements.txt
+      4.build and run the docker image using below command:<br>
+     -**CMD**:<br>
         docker compose build up
+## Author:
+   **JAGAN MOHAN REDDY**<br>
+   Aspiring Data Scientist
+   
+   
+      
   
 
 
