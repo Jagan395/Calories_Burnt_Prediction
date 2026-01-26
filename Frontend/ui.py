@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://backend:8000/predict"
+API_URL = "http://3.7.215.213:8000/predict"
 
 st.set_page_config(page_title="Calories Burnt Prediction", layout="centered")
 
