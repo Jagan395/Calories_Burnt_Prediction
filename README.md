@@ -32,7 +32,7 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
     [Important:Replace the " http://backend:8000/predict " in ui.py with " http://127.0.0.1:8000/predict "] <br>
     -**CMD** : streamlit run u.py <br>
 
-    -**docker**: <br>
+  - **docker**: <br>
       1.install the docker <br>
       2.clone the project using git <br>
       3.install the requirements using the below command <br>
