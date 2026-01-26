@@ -27,9 +27,9 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
     3.install the requirements using the below command <br>
     -**CMD** : pip install -r reqiurements.txt <br>
     4.run the backend code using the below command <br>
-    - **CMD** : uvicorn app:app --reload <br>
+    -**CMD** : uvicorn app:app --reload <br>
     5.run the frontend code using the below command <br>
-      [Important:Replace the " http://backend:8000/predict " in ui.py with " http://127.0.0.1:8000/predict "] <br>
+    [Important:Replace the " http://backend:8000/predict " in ui.py with " http://127.0.0.1:8000/predict "] <br>
     -**CMD** : streamlit run u.py <br>
 
     -**docker**: <br>
