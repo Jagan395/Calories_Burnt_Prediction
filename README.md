@@ -7,7 +7,7 @@ The system uses a FastAPI backend for model inference and a Streamlit frontend f
 
 ## Live URL :
    - **TRY IT OUT** <br> 
-  http://13.233.148.78:8501/
+  
 ---
 
 ## Project Overview:
